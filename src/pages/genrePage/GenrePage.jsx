@@ -1,41 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import useFetchSolution from "../../hook/useFetchSolution";
 import { useParams } from "react-router";
 import CardGame from "../../components/CardGame";
 
-
 function GenrePage() {
   const { genre } = useParams();
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
-
   const initialUrl = `https://api.rawg.io/api/games?key=9269195f491e44539d7a2d10ce87ab15&genres=${genre}&page=1`;
-  const load = async () => {
-    setLoading(true);
-    try {
-      const response = await fetch(initialUrl);
-      if (!response.ok) {
-        throw new Error(response.statusText);
-      }
-      const json = await response.json();
-
-      setData(json);
-      setError(null);
-    } catch (error) {
-      setError(error.message);
-      setData(null);
-    } finally {
-      setLoading(false);
-    }
-  };
+  const { data, loading, error, updateUrl } = useFetchSolution(initialUrl);
 
   useEffect(() => {
-    load();
+    updateUrl(initialUrl);
   }, [genre]);
 
   if (loading) {
     return (
-      <h2 className="text-center">
+            <h2 className="text-center m-5">
         Caricamento in corso...
         <div className="spinner-border" role="status">
           <span className="visually-hidden">Loading...</span>

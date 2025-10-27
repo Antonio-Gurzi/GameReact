@@ -1,40 +1,14 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import useFetchSolution from "../../hook/useFetchSolution";
 
 function GamePage() {
   const { id } = useParams();
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
-
   const initialUrl = `https://api.rawg.io/api/games/${id}?key=9269195f491e44539d7a2d10ce87ab15`;
-  const load = async () => {
-    setLoading(true);
-    try {
-      const response = await fetch(initialUrl);
-      if (!response.ok) {
-        throw new Error(response.statusText);
-      }
-      const json = await response.json();
-      console.log(json);
-
-      setData(json);
-      setError(null);
-    } catch (error) {
-      setError(error.message);
-      setData(null);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    load();
-  }, [id]);
+  const { data, loading, error } = useFetchSolution(initialUrl);
 
   if (loading) {
     return (
-      <h2 className="text-center">
+           <h2 className="text-center m-5">
         Caricamento in corso...
         <div className="spinner-border" role="status">
           <span className="visually-hidden">Loading...</span>

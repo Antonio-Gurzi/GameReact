@@ -1,40 +1,13 @@
-import { useEffect, useState } from "react";
 import CardGame from "../../components/CardGame";
+import useFetchSolution from "../../hook/useFetchSolution";
 
 function Homepage() {
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
-
   const initialUrl =
     "https://api.rawg.io/api/games?key=aa60a9afaee345918b4cd7ffa27eba40&dates=2024-01-01,2024-12-31&page=1";
-
-  const load = async () => {
-    setLoading(true);
-    try {
-      const response = await fetch(initialUrl);
-      if (!response.ok) {
-        throw new Error(response.statusText);
-      }
-      const json = await response.json();
-
-      setData(json);
-      setError(null);
-    } catch (error) {
-      setError(error.message);
-      setData(null);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    load();
-  }, []);
-
+  const { data, loading, error } = useFetchSolution(initialUrl);
   if (loading) {
     return (
-      <h2 className="text-center">
+      <h2 className="text-center m-5">
         Caricamento in corso...
         <div className="spinner-border" role="status">
           <span className="visually-hidden">Loading...</span>
