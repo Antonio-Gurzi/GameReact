@@ -9,7 +9,7 @@ function Footer() {
       </p>
       <p className="mb-0">
         <span className="fw-semibold">
-          Specializzaione React,Aulab Settembre 2025
+          Specializzazione React,Aulab Settembre 2025
         </span>
       </p>
     </footer>

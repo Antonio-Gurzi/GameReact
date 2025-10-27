@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import Searchbar from "./Searchbar";
 
 function Header() {
   return (
@@ -28,6 +29,8 @@ function Header() {
               </a>
             </li>
           </ul>
+
+          <Searchbar />
 
           {/* Dropdown di destra */}
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">

@@ -4,6 +4,7 @@ import ErrorPage from "../pages/errorPage/ErrorPage";
 import GenrePage from "../pages/genrePage/GenrePage";
 import GamePage from "../pages/gamePage/GamePage ";
 import { BrowserRouter, Routes, Route } from "react-router";
+import SearchPage from "../pages/searchpage/SearchPage";
 
 function Routing() {
   return (
@@ -14,6 +15,7 @@ function Routing() {
           <Route path="*" element={<ErrorPage />} />
           <Route path="/games/:genre" element={<GenrePage />} />
           <Route path="/games/:slug/:id" element={<GamePage />} />
+          <Route path="/search" element={<SearchPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
