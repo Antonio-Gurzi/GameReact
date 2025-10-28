@@ -16,7 +16,7 @@ function Header() {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary py-3 shadow-sm">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary py-3">
       <div className="container">
         <Link className="navbar-brand fw-bold fs-4 text-white" to="/">
           GameReact

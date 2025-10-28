@@ -79,7 +79,7 @@ function RegisterPage() {
         <div className="col-md-6 col-lg-5">
           <div className="card shadow-sm">
             <div className="card-body p-4">
-              <h2 className="card-title text-center mb-4">Sign Up</h2>
+              <h2 className="card-title text-center mb-4">Registrazione</h2>
               <form onSubmit={onSubmit} noValidate>
                 <div className="mb-3">
                   <label htmlFor="email" className="form-label">
@@ -105,7 +105,7 @@ function RegisterPage() {
                 <div className="row">
                   <div className="col-md-6 mb-3">
                     <label htmlFor="firstName" className="form-label">
-                      First Name
+                      Nome
                     </label>
                     <input
                       type="text"
@@ -128,7 +128,7 @@ function RegisterPage() {
 
                   <div className="col-md-6 mb-3">
                     <label htmlFor="lastName" className="form-label">
-                      Last Name
+                      Cognome
                     </label>
                     <input
                       type="text"
@@ -197,7 +197,7 @@ function RegisterPage() {
                 </div>
 
                 <button type="submit" className="btn btn-primary w-100">
-                  Sign Up
+                  Registrati
                 </button>
               </form>
             </div>

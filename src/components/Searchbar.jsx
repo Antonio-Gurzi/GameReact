@@ -19,7 +19,7 @@ function Searchbar() {
   return (
     <form className="d-flex" role="search" onSubmit={handleSearch}>
       <input
-        className="form-control me-2 rounded-pill"
+        className="form-control me-2 rounded-pill text-center"
         type="search"
         placeholder="Trova il tuo gioco"
         aria-label="Search"
