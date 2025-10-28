@@ -13,62 +13,98 @@ function Header() {
   const signOut = async () => {
     const { error } = await supabase.auth.signOut();
     if (error) console.log(error);
-    alert('Signed out');
-    navigate('/');
-  }
+    alert("Signed out");
+    navigate("/");
+  };
 
   return (
-    <nav className="navbar navbar-expand-lg bg-light px-5 pb-2" data-bs-theme="light">
-      <div className="container-fluid">
-        <Link className="navbar-brand" to="/">GameReact</Link>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light py-3 shadow-sm">
+      <div className="container">
+        <Link className="navbar-brand fw-bold fs-4" to="/">
+          GameReact
+        </Link>
 
         <button
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
+          data-bs-target="#navbarContent"
+          aria-controls="navbarContent"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className="collapse navbar-collapse" id="navbarContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" href="#">Servizi</a>
+              <Link className="nav-link fw-semibold" to="#">
+                Servizi
+              </Link>
             </li>
           </ul>
 
           <Searchbar />
 
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
             {!session || !session.user ? (
               <>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/register">Registrati</Link>
+                <li className="nav-item me-2">
+                  <Link
+                    className="btn btn-outline-primary rounded-pill px-4 py-2 shadow-sm"
+                    to="/register"
+                  >
+                    Registrati
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/login">Login</Link>
+                  <Link
+                    className="btn btn-primary rounded-pill px-4 py-2 shadow-sm"
+                    to="/login"
+                  >
+                    Login
+                  </Link>
                 </li>
               </>
             ) : (
               <li className="nav-item dropdown">
                 <a
-                  className="nav-link dropdown-toggle"
+                  className="nav-link dropdown-toggle d-flex align-items-center"
                   href="#"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  {session?.user?.user_metadata?.username}
+                  <div className="d-flex align-items-center gap-2">
+                    <span className="badge bg-primary text-white rounded-pill px-3 py-2 shadow-sm fs-6">
+                      {session?.user?.user_metadata?.username}
+                    </span>
+                    <i className="bi bi-person-circle fs-3 text-primary"></i>
+                  </div>
                 </a>
-                <ul className="dropdown-menu dropdown-menu-end">
-                  <li><a className="dropdown-item" href="#">Profilo</a></li>
-                  <li><a className="dropdown-item" href="#">Impostazioni</a></li>
-                  <li><hr className="dropdown-divider" /></li>
-                  <li><button className="dropdown-item" onClick={signOut}>Logout</button></li>
+                <ul className="dropdown-menu dropdown-menu-end shadow-sm">
+                  <li>
+                    <Link className="dropdown-item" to="#">
+                      Profilo
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="#">
+                      Impostazioni
+                    </Link>
+                  </li>
+                  <li>
+                    <hr className="dropdown-divider" />
+                  </li>
+                  <li>
+                    <button
+                      className="dropdown-item text-danger"
+                      onClick={signOut}
+                    >
+                      Logout
+                    </button>
+                  </li>
                 </ul>
               </li>
             )}
