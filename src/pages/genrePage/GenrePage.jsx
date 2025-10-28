@@ -30,7 +30,7 @@ function GenrePage() {
   return (
     <div className="container my-4">
       <div className="row g-3">
-        {data?.results.map((game) => (
+        {data && data.results.map((game) => (
           <div key={game.id} className="col-12 col-sm-6 col-lg-3">
             <CardGame game={game} />
           </div>
