@@ -8,9 +8,9 @@ function GamePage() {
 
   if (loading) {
     return (
-           <h2 className="text-center m-5">
+      <h2 className="text-center m-5">
         Caricamento in corso...
-        <div className="spinner-border" role="status">
+        <div className="spinner-border text-warning" role="status">
           <span className="visually-hidden">Loading...</span>
         </div>
       </h2>
@@ -24,33 +24,35 @@ function GamePage() {
   return (
     <>
       {data && (
-        <div className="card my-3 shadow-sm border-0 imgDetail">
+        <div className="card my-4 shadow-lg border-0 rounded-4 bg-dark text-light">
           <img
             src={data.background_image}
-            // className="card-img-top"
             alt={data.name}
-            // style={{ objectFit: "contain", maxHeight: "300px" }}
+            className="card-img-top rounded-top-4"
+            style={{ objectFit: "cover", maxHeight: "400px" }}
           />
 
-          <div className="card-body bg-light text-dark">
-            <h5 className="card-title">{data.name}</h5>
+          <div className="card-body">
+            <h3 className="card-title mb-3">{data.name}</h3>
 
             {data.released && (
-              <p className="card-text mb-1">
-                <i className="bi bi-calendar-event me-2"></i>
+              <p className="card-text mb-2">
+                <i className="bi bi-calendar-event me-2 text-info"></i>
                 <span className="fw-bold">Uscita:</span> {data.released}
               </p>
             )}
 
             {data.rating && (
-              <p className="card-text mb-1">
+              <p className="card-text mb-3">
                 <i className="bi bi-star-fill me-2 text-warning"></i>
                 <span className="fw-bold">Valutazione:</span> {data.rating}
               </p>
             )}
 
             {data.description_raw && (
-              <p className="card-text mt-2">{data.description_raw}</p>
+              <p className="card-text text-light">
+                {data.description_raw}
+              </p>
             )}
           </div>
         </div>

@@ -25,7 +25,7 @@ function GenresDropdown() {
         {data?.results?.map((genre) => (
           <li key={genre.id}>
             <Link
-              className="dropdown-item text-decoration-none text-white"
+              className="dropdown-item text-decoration-none text-white text-tru"
               to={`/games/${genre.slug}`}
             >
               {genre.name}

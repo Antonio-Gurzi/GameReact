@@ -8,8 +8,6 @@ function Header() {
   const navigate = useNavigate();
   const { session } = useContext(SessionContext);
 
-  console.log("Session from context:", session);
-
   const signOut = async () => {
     const { error } = await supabase.auth.signOut();
     if (error) console.log(error);
@@ -18,9 +16,9 @@ function Header() {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light py-3 shadow-sm">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary py-3 shadow-sm">
       <div className="container">
-        <Link className="navbar-brand fw-bold fs-4" to="/">
+        <Link className="navbar-brand fw-bold fs-4 text-white" to="/">
           GameReact
         </Link>
 
@@ -39,7 +37,7 @@ function Header() {
         <div className="collapse navbar-collapse" id="navbarContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link fw-semibold" to="#">
+              <Link className="nav-link fw-semibold text-white" to="#">
                 Servizi
               </Link>
             </li>
@@ -52,7 +50,7 @@ function Header() {
               <>
                 <li className="nav-item me-2">
                   <Link
-                    className="btn btn-outline-primary rounded-pill px-4 py-2 shadow-sm"
+                    className="btn btn-outline-light rounded-pill"
                     to="/register"
                   >
                     Registrati
@@ -60,7 +58,7 @@ function Header() {
                 </li>
                 <li className="nav-item">
                   <Link
-                    className="btn btn-primary rounded-pill px-4 py-2 shadow-sm"
+                    className="btn btn-light text-primary rounded-pill px-4"
                     to="/login"
                   >
                     Login
@@ -70,17 +68,17 @@ function Header() {
             ) : (
               <li className="nav-item dropdown">
                 <a
-                  className="nav-link dropdown-toggle d-flex align-items-center"
+                  className="nav-link dropdown-toggle d-flex align-items-center text-white"
                   href="#"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
                   <div className="d-flex align-items-center gap-2">
-                    <span className="badge bg-primary text-white rounded-pill px-3 py-2 shadow-sm fs-6">
+                    <span className="badge bg-light text-primary rounded-pill px-3 py-2 shadow-sm fs-6">
                       {session?.user?.user_metadata?.username}
                     </span>
-                    <i className="bi bi-person-circle fs-3 text-primary"></i>
+                    <i className="bi bi-person-circle fs-3 text-white"></i>
                   </div>
                 </a>
                 <ul className="dropdown-menu dropdown-menu-end shadow-sm">

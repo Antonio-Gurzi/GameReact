@@ -6,24 +6,26 @@ function CardGame({ game }) {
   const { background_image: image } = game;
 
   return (
-    <div key={game.id} className="card card-game">
-      <h3 className="card-header text-truncate">{game.name}</h3>
-      <div className="card-body">
-        {/* <h5 className="card-title text-truncate">{game.name}</h5> */}
-        <h6 className="card-subtitle text-muted text-truncate">{genres}</h6>
+    <div
+      key={game.id}
+      className="card bg-dark text-light shadow-lg rounded-4 h-100 border border-secondary"
+    >
+      <div className="position-relative">
+        <LazyLoadGameImage src={image} alt={game.name} className="card-img-top rounded-top-4" />
+        <span className="badge bg-danger position-absolute top-0 start-0 m-2">
+          {genres.split(",")[0]}
+        </span>
       </div>
 
-      <LazyLoadGameImage src={image} alt={game.name} />
-
-      <div className="card-body">
-        <p className="card-text text-truncate">
-          Data di rilascio: {game.released}
-        </p>
-      </div>
-      <div className="card-body">
-        <button className="btn btn-primary w-100">
-          <Link className="text-decoration-none" to={`/games/${game.slug}/${game.id}`}>Visita il Gioco</Link>
-        </button>
+      <div className="card-body d-flex flex-column">
+        <h5 className="card-title text-truncate" title={game.name}>{game.name}</h5>
+        <p className="card-text mb-3 text-muted">Data di rilascio: {game.released}</p>
+        <Link
+          to={`/games/${game.slug}/${game.id}`}
+          className="btn btn-outline-warning mt-auto fw-bold rounded-pill"
+        >
+          Scopri il Gioco
+        </Link>
       </div>
     </div>
   );
