@@ -7,6 +7,7 @@ import RegisterPage from "../pages/register/RegisterPage";
 import { BrowserRouter, Routes, Route } from "react-router";
 import SearchPage from "../pages/searchpage/SearchPage";
 import LoginPage from "../pages/login/LoginPage";
+import AccountPage from "../pages/account/AccountPage";
 
 function Routing() {
   return (
@@ -20,6 +21,7 @@ function Routing() {
           <Route path="/search" element={<SearchPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/account" element={<AccountPage />}/>
         </Route>
       </Routes>
     </BrowserRouter>

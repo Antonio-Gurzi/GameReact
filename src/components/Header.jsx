@@ -83,12 +83,12 @@ function Header() {
                 </a>
                 <ul className="dropdown-menu dropdown-menu-end shadow-sm">
                   <li>
-                    <Link className="dropdown-item" to="#">
+                    <Link className="dropdown-item" to="/account">
                       Profilo
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="#">
+                    <Link className="dropdown-item" to="">
                       Impostazioni
                     </Link>
                   </li>
