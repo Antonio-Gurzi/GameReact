@@ -88,8 +88,8 @@ function Header() {
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="">
-                      Impostazioni
+                    <Link className="dropdown-item" to="/favorites">
+                      Preferiti
                     </Link>
                   </li>
                   <li>

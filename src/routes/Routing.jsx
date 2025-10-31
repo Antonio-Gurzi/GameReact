@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import SearchPage from "../pages/searchpage/SearchPage";
 import LoginPage from "../pages/login/LoginPage";
 import AccountPage from "../pages/account/AccountPage";
+import FavoritesPage from "../pages/account/FavoritesPage";
 
 function Routing() {
   return (
@@ -22,6 +23,7 @@ function Routing() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/account" element={<AccountPage />}/>
+          <Route path="/favorites" element={<FavoritesPage />}/>
         </Route>
       </Routes>
     </BrowserRouter>
