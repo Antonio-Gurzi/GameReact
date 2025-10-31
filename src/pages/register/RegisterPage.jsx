@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import {
   ConfirmSchema,
   getErrors,
@@ -203,7 +203,7 @@ function RegisterPage() {
             </div>
           </div>
           <p className="text-center mt-3 text-muted">
-            Already have an account? <a href="/login">Login</a>
+            Already have an account? <Link to="/login">Login</Link>
           </p>
         </div>
       </div>

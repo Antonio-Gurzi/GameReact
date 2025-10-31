@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import supabase from "../../supabase/supabase-client";
+import { Link } from "react-router";
 import {
   FormSchema,
   ConfirmSchema,
@@ -74,7 +75,7 @@ function LoginPage() {
             <div className="card-body p-4">
               <h2 className="card-title text-center mb-4">Login</h2>
               <form onSubmit={onSubmit} noValidate>
-                {/* Email */}
+
                 <div className="mb-3">
                   <label htmlFor="email" className="form-label">
                     Email
@@ -98,7 +99,6 @@ function LoginPage() {
                   )}
                 </div>
 
-                {/* Password */}
                 <div className="mb-4">
                   <label htmlFor="password" className="form-label">
                     Password
@@ -124,7 +124,6 @@ function LoginPage() {
                   )}
                 </div>
 
-                {/* Bottone */}
                 <button type="submit" className="btn btn-primary w-100">
                   Accedi
                 </button>
@@ -132,7 +131,7 @@ function LoginPage() {
             </div>
           </div>
           <p className="text-center mt-3 text-muted">
-            Non hai un account? <a href="/register">Registrati</a>
+            Non hai un account? <Link to="/register">Registrati</Link>
           </p>
         </div>
       </div>
