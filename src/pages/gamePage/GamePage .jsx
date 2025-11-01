@@ -1,6 +1,7 @@
 import { useParams } from "react-router";
 import useFetchSolution from "../../hook/useFetchSolution";
-import ToggleFavorite from "../../components/ToggleFavorite"; 
+import ToggleFavorite from "../../components/ToggleFavorite";
+import Chatbox from "../../components/Chatbox";
 
 function GamePage() {
   const { id } = useParams();
@@ -51,6 +52,10 @@ function GamePage() {
           </div>
         </div>
       )}
+
+      <div className="style-chatbox">
+        <Chatbox data={data && data} />
+      </div>
     </>
   );
 }
