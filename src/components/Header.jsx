@@ -35,14 +35,12 @@ function Header() {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarContent">
-
-
           <Searchbar />
 
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center d-flex flex-row gap-2">
             {!session || !session.user ? (
               <>
-                <li className="nav-item me-2">
+                <li className="nav-item">
                   <Link
                     className="btn btn-outline-light rounded-pill"
                     to="/register"
