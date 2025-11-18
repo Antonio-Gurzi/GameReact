@@ -21,4 +21,4 @@ GameReact è un'applicazione web sviluppata con **React.js** e **Supabase** che 
 - **Backend / Database**: Supabase (PostgreSQL, autenticazione, storage)
 - **API**: Recupero dati giochi tramite API pubbliche
 - **Stato globale**: Context API 
-- **Stile**: CSS Modules / Boostrap
+- **Stile**: CSS Modules / Bootstrap
